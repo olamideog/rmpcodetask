@@ -16,8 +16,8 @@ class StudentAddresses extends Model
     public $timestamps = false;
 
 
-    public function course()
+    /*public function student()
     {
-        return $this->belongsTo('Students');
-    }
+        return $this->hasOne('Students');
+    }*/
 }

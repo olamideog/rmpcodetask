@@ -55,19 +55,22 @@
                 margin: 16px 0 0 0;
             }
         </style>
+        <link rel="stylesheet" href="{{ url('/css/app.min.css') }}">
+        <script src="{{url('/js/app.min.js')}}"></script>
     </head>
 
     <body>
-        
-        <div class="header">
-            <div><img src="/images/RMP_logo_sm.jpg" alt="RMP Logo" title="RMP logo"></div>
-            <div  style='margin: 10px;  text-align: left'>
-                <input type="button" value="Select All"/>
-                <input type="button" value="Export"/>
+        <form method="post" action="{{url('/export')}}">
+            {{ csrf_field() }}
+            <div class="header">
+                <div><img src="/images/RMP_logo_sm.jpg" alt="RMP Logo" title="RMP logo"></div>
+                <div  style='margin: 10px;  text-align: left'>
+                    <button class="btn btn-sm btn-primary checkall" type="button" value="Select All">Select All</button>
+                    <button class="btn btn-sm btn-primary" type="submit" value="Export" name="export">Export</button>
+                </div>
             </div>
-        </div>
 
-        <form>
+        
 
             <div style='margin: 10px; text-align: center;'>
                 <table class="student-table">
@@ -80,10 +83,10 @@
                         <th>Course</th>
                     </tr>
 
-                    @if(  count($students) > 0 )
+                    @if(count($students) > 0)
                     @foreach($students as $student)
                     <tr>
-                        <td><input type="checkbox" name="studentId" value="{{$student['id']}}"></td>
+                        <td><input type="checkbox" class="student" name="studentId[]" value="{{$student['id']}}"></td>
                         <td style=' text-align: left;'>{{$student['firstname']}}</td>
                         <td style=' text-align: left;'>{{$student['surname']}}</td>
                         <td style=' text-align: left;'>{{$student['email']}}</td>
