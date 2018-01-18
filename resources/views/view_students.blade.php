@@ -63,7 +63,7 @@
         <form method="post" action="{{url('/export')}}">
             {{ csrf_field() }}
             <div class="header">
-                <div><img src="/images/RMP_logo_sm.jpg" alt="RMP Logo" title="RMP logo"></div>
+                
                 <div  style='margin: 10px;  text-align: left'>
                     <button class="btn btn-sm btn-primary checkall" type="button" value="Select All">Select All</button>
                     <button class="btn btn-sm btn-primary" type="submit" value="Export" name="export">Export</button>
